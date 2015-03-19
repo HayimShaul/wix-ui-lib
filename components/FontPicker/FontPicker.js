@@ -62,7 +62,7 @@ jQuery.fn.definePlugin('FontPicker', function () {
     function addCommasIfNeededToFontFamilies(cssFontFamily){
         var fontFamilyArr = cssFontFamily.split(',');
 
-        for (var fontFamily in fontFamilyArr) {
+        for (var fontFamily = 0; fontFamily < fontFamilyArr.length; ++fontFamily) {
             if (fontFamilyArr[fontFamily].indexOf('"') < 0) {
                 fontFamilyArr[fontFamily]  = '"' + fontFamilyArr[fontFamily]  + '"';
             }
@@ -79,7 +79,7 @@ jQuery.fn.definePlugin('FontPicker', function () {
 		var frag = document.createDocumentFragment();
 		allFontsMeta.forEach(function (fontsMetaLang) {
 			var fontsMeta = fontsMetaLang.fonts;
-			for (var f in fontsMeta) {
+			for (var f = 0; f < fontsMeta.length; ++f) {
 				var font = fontsMeta[f];
 				var offsetIndex = font.characterSets.indexOf(fontsMetaLang.lang);
 				var spriteIndex = font.spriteIndex + offsetIndex;
